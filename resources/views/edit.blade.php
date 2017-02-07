@@ -4,7 +4,7 @@
 
 <h2>Vous êtes en train de modifier le produit {{ $product->name }} </h2>
 
-<form class="ui form" action="/products/createProduct" method="post">
+<form class="ui form" action="/products/editProduct/{{$product->id}}" method="post">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<div class="field">
 	<label for="name">Nom de produit :</label>
@@ -22,8 +22,8 @@
 		<label for="stock">Stock :</label>
 		<input id="stock" name="stock" type="text" value="{{$product->stock}}">
 	</div>
-	<button class="ui yellow button" type="submit">
-		Ajouter ce produit
+	<button class="ui orange button" type="submit">
+		Modifier ce produit
 	</button>
 </form>
 

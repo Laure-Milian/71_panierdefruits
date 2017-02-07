@@ -30,3 +30,5 @@ Route::post('/products/createProduct', 'ProductController@postCreateProduct');
 Route::post('/products/delete/{id}', 'ProductController@postDelete');
 
 Route::get('/products/edit/{id}', 'ProductController@getEdit');
+
+Route::post('/products/editProduct/{id}', 'ProductController@postEdit');

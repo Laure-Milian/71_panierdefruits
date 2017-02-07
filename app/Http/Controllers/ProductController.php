@@ -56,4 +56,15 @@ class ProductController extends Controller
     	$product = Product::find($id);
     	return view('edit', ['product' => $product]);
     }
+
+    public function postEdit($id, Request $request) {
+    	$product = Product::find($id);
+    	$product->name = $request->name;
+    	$product->description = $request->description;
+    	$product->price = $request->price;
+    	$product->stock = $request->stock;
+    	$product->save();
+    	return redirect('products');
+    }
+
 }
