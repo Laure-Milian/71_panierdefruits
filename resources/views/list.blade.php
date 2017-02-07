@@ -19,12 +19,18 @@ Mes produits :
 		<td>{{ $product->price / 100 }}</td>
 		<td>{{ $product->stock }}</td>
 		<td>
-			<a href="/show/{{$product->id}}">
+			<a href="/products/show/{{$product->id}}">
 				En savoir plus sur nos {{ $product->name }}
 			</a>
 		</td>
 	</tr>
 	@endforeach
 </table>
+
+<div>
+	<a class="ui violet button" href='/products/create'>
+		Ajouter un nouveau produit
+	</a>	
+</div>
 
 @stop

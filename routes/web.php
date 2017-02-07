@@ -17,4 +17,12 @@ Route::get('/', function () {
 
 Route::get('/products', 'ProductController@getIndex');
 
-Route::get('/show/{id}', 'ProductController@getShow');
+Route::get('/products/show/{id}', 'ProductController@getShow');
+
+Route::post('/products/subtract/{id}', 'ProductController@postSubtract');
+
+Route::post('/products/add/{id}', 'ProductController@postAdd');
+
+Route::get('/products/create', 'ProductController@getCreate');
+
+Route::post('/products/createProduct', 'ProductController@postCreateProduct');

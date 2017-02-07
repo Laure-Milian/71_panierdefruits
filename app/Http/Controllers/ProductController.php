@@ -3,17 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class ProductController extends Controller
 {
     public function getIndex() {
-    	$products = \App\Product::all();
+    	$products = Product::all();
     	return view('list', ['products' => $products]);
     }
 
     public function getShow($id) {
-    	$product = \App\Product::find($id);
+    	$product = Product::find($id);
     	return view('show', ['product' => $product]);
     }
 
+
+    public function postSubtract($id) {
+    	$product = Product::find($id);
+    	$product->stock--;
+    	$product->save();
+    	return back();
+    }
+
+    public function postAdd($id) {
+    	$product = Product::find($id);
+    	$product->stock++;
+    	$product->save();
+    	return back();
+    }
+
+    public function getCreate() {
+		return view('create');    	
+    }
+
+    public function postCreateProduct(Request $request) {
+    	$product = new Product;
+    	$product->name = $request->name;
+    	$product->description = $request->description;
+    	$product->price = $request->price;
+    	$product->stock = $request->stock;
+    	$product->save();
+    	$products = Product::all();
+    	return view('list', ['products' => $products]);
+    }
 }

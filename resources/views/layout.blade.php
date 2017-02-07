@@ -6,9 +6,12 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.7/semantic.min.css">
 </head>
 <body>
-	<h1>Hello</h1>
-	
-	@yield('content')
+	<div class="ui container">
+		<h1>Hello</h1>
+
+		@yield('content')
+
+	</div>
 
 </body>
 </html>
