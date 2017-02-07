@@ -44,13 +44,18 @@ Produit sélectionné :
 		</div>
 	</div>
 	@endforeach
-	<form class="ui reply form">
+	<form class="ui reply form" action="/comments/create/{{$product->id}}" method="post">
 		<div class="field">
-			<textarea></textarea>
+			{{csrf_field()}}
+			<label for="author">Author :</label>
+			<input id="author" name="author" type="text">
 		</div>
-		<div class="ui primary submit labeled icon button">
-			<i class="icon edit"></i> Add Comment
+		<div class="field">
+			{{csrf_field()}}
+			<label for="content"></label>
+			<textarea id="content" name="content"></textarea>
 		</div>
+		<button class="ui blue button">Commenter</button>
 	</form>
 </div>
 

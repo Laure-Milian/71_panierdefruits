@@ -32,3 +32,5 @@ Route::post('/products/delete/{id}', 'ProductController@postDelete');
 Route::get('/products/edit/{id}', 'ProductController@getEdit');
 
 Route::post('/products/editProduct/{id}', 'ProductController@postEdit');
+
+Route::post('/comments/create/{id}', 'CommentController@postCreate');
