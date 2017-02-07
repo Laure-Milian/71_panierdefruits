@@ -75,11 +75,11 @@
 	app = {
 		init: function init() {
 			this.listeners();
-			console.log('yoyoyoyo');
 		},
 
 		listeners: function listeners() {
 			$('#btnSubtract').on('click', this.subtract.bind(this));
+			$('#btnAdd').on('click', this.add.bind(this));
 		},
 
 		subtract: function subtract() {
@@ -94,7 +94,21 @@
 				type: 'post'
 			}).done(function (response) {
 				$("#stock").html(response);
-				console.log(response);
+			});
+		},
+
+		add: function add() {
+			var id = $("#id").html();
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				url: '/products/add/' + id,
+				type: 'post'
+			}).done(function (response) {
+				$("#stock").html(response);
 			});
 		}
 

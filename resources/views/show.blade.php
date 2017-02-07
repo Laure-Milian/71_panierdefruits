@@ -13,10 +13,7 @@ Produit sélectionné :
 	Stock :	
 	<button id="btnSubtract" class="ui pink button">-</button>		
 	<span id="stock">{{ $product->stock }}</span>
-	<form action="/products/add/{{$product->id}}" method="post">
-		{{csrf_field()}}
-		<button class="ui pink button">+</button>
-	</form>
+	<button id="btnAdd" class="ui pink button">+</button>
 </div>
 
 <div>

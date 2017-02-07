@@ -25,11 +25,11 @@ class ProductController extends Controller
         return response($product->stock);
     }
 
-    public function postAdd($id) {
+    public function postAdd(Request $request, $id) {
     	$product = Product::find($id);
     	$product->stock++;
     	$product->save();
-    	return back();
+    	return response($product->stock);
     }
 
     public function getCreate() {
