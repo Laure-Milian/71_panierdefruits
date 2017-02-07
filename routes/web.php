@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-	$products = App\Product::all();
-	dd($products);
-    //return view('welcome');
+	return view('welcome');
 });
 
-Route::get('/products', '\App\Http\Controllers\ProductController@getIndex');
+Route::get('/products', 'ProductController@getIndex');
+
+Route::get('/show/{id}', 'ProductController@getShow');

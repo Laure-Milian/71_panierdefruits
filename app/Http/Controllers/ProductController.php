@@ -11,4 +11,9 @@ class ProductController extends Controller
     	return view('list', ['products' => $products]);
     }
 
+    public function getShow($id) {
+    	$product = \App\Product::find($id);
+    	return view('show', ['product' => $product]);
+    }
+
 }
