@@ -23,7 +23,7 @@
 		<input id="stock" name="stock" type="text" value="{{$product->stock}}">
 	</div>
 	<button class="ui orange button" type="submit">
-		Modifier ce produit
+		Enregistrer les modifications
 	</button>
 </form>
 

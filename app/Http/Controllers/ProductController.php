@@ -43,13 +43,13 @@ class ProductController extends Controller
     	$product->price = $request->price;
     	$product->stock = $request->stock;
     	$product->save();
-    	return redirect('products');
+    	return redirect('products')->with('success', ['Le produit', $product->name, 'a bien été ajouté']);
     }
 
     public function postDelete($id) {
     	$product = Product::find($id);
     	$product->forceDelete();
-    	return redirect('products');
+    	return redirect('products')->with('success', ['Le produit', $product->name, 'a bien été supprimé']);
     }
 
     public function getEdit($id) {
@@ -64,7 +64,7 @@ class ProductController extends Controller
     	$product->price = $request->price;
     	$product->stock = $request->stock;
     	$product->save();
-    	return redirect('products');
+    	return redirect('products')->with('success', ['Le produit', $product->name, 'a bien été modifié']); 
     }
 
 }

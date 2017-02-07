@@ -2,6 +2,11 @@
 
 @section('content')
 
+@if (Session::has('success'))
+    <div class="ui green message">
+    	{{ Session::get('success')[0] . " " . Session::get('success')[1] . " " . Session::get('success')[2] }}
+    </div>
+@endif
 
 Mes produits :
 <table>
