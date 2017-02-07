@@ -67,4 +67,8 @@ class ProductController extends Controller
     	return redirect('products')->with('success', ['Le produit', $product->name, 'a bien été modifié']); 
     }
 
+    public function test(Request $request) {
+        return response()->json(['response' => 'la methode est passee']);
+    }
+
 }

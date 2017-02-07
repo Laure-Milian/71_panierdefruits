@@ -3,6 +3,7 @@
 @section('content')
 
 Produit sélectionné :
+<div id="id">{{$product->id}}</div>
 <ul>
 	<li> ID : {{ $product->id }} </li>
 	<li> Name : {{ $product->name }} </li>
@@ -11,9 +12,11 @@ Produit sélectionné :
 </ul>
 <div class="ui segment">
 	Stock :
-	<form action="/products/subtract/{{$product->id}}" method="post">
+	<!-- <button id="btnSubtract" class="ui pink button">-</button> -->
+	
+	<form action="/products">
+		<button id="btnSubtract" class="ui pink button">-</button>		
 		{{csrf_field()}}
-		<button id="btnSubtract" class="ui pink button">-</button>
 	</form>
 	<span> {{ $product->stock }} </span>
 	<form action="/products/add/{{$product->id}}" method="post">
@@ -34,6 +37,10 @@ Produit sélectionné :
 		Ajouter un nouveau produit
 	</a>
 
+</div>
+
+<div>
+	<button class="ui red button" id="btnTest">LE BOUTON TEST EST ICI</button>
 </div>
 
 @endsection

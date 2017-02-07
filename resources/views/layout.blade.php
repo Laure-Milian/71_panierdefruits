@@ -13,6 +13,7 @@
 
 	</div>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>
