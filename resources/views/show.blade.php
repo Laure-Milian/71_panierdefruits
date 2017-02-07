@@ -23,6 +23,11 @@ Produit sélectionné :
 </div>
 
 <div>
+	<form action="/products/delete/{{$product->id}}" method="post">
+		{{csrf_field()}}
+		<button class="ui blue button">Supprimer ce produit</button>	
+	</form>
+
 	<a class="ui violet button" href='/products/create'>
 		Ajouter un nouveau produit
 	</a>	

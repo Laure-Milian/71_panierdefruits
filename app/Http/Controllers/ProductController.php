@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function getIndex() {
     	$products = Product::all();
-    	return view('list', ['products' => $products]);
+    	return view('list', ['products' => $products, 'message' => " "]);
     }
 
     public function getShow($id) {
@@ -43,7 +43,12 @@ class ProductController extends Controller
     	$product->price = $request->price;
     	$product->stock = $request->stock;
     	$product->save();
-    	$products = Product::all();
-    	return view('list', ['products' => $products]);
+    	return redirect('products');
+    }
+
+    public function delete($id) {
+    	$product = Product::find($id);
+    	$product->forceDelete();
+    	return redirect('products');
     }
 }

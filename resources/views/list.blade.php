@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 Mes produits :
 <table>
 	<tr>
@@ -9,7 +10,7 @@ Mes produits :
 		<th>Name</th>
 		<th>Description</th>
 		<th>Price</th>
-		<th>Strock</th>
+		<th>Stock</th>
 	</tr>
 	@foreach ($products as $product)
 	<tr>

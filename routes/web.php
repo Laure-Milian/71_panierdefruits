@@ -26,3 +26,5 @@ Route::post('/products/add/{id}', 'ProductController@postAdd');
 Route::get('/products/create', 'ProductController@getCreate');
 
 Route::post('/products/createProduct', 'ProductController@postCreateProduct');
+
+Route::post('/products/delete/{id}', 'ProductController@delete');
