@@ -46,9 +46,14 @@ class ProductController extends Controller
     	return redirect('products');
     }
 
-    public function delete($id) {
+    public function postDelete($id) {
     	$product = Product::find($id);
     	$product->forceDelete();
     	return redirect('products');
+    }
+
+    public function getEdit($id) {
+    	$product = Product::find($id);
+    	return view('edit', ['product' => $product]);
     }
 }

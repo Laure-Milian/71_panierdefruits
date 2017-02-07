@@ -23,6 +23,8 @@ Produit sélectionné :
 </div>
 
 <div>
+	<a href="/products/edit/{{$product->id}}" class="ui green button">Modifier ce produit</a>
+
 	<form action="/products/delete/{{$product->id}}" method="post">
 		{{csrf_field()}}
 		<button class="ui blue button">Supprimer ce produit</button>	
@@ -30,7 +32,8 @@ Produit sélectionné :
 
 	<a class="ui violet button" href='/products/create'>
 		Ajouter un nouveau produit
-	</a>	
+	</a>
+
 </div>
 
 @endsection
