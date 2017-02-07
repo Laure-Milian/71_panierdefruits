@@ -18,11 +18,11 @@ class ProductController extends Controller
     }
 
 
-    public function postSubtract($id) {
+    public function postSubtract(Request $request, $id) {
     	$product = Product::find($id);
     	$product->stock--;
     	$product->save();
-    	return back();
+        return response($product->stock);
     }
 
     public function postAdd($id) {
@@ -65,10 +65,6 @@ class ProductController extends Controller
     	$product->stock = $request->stock;
     	$product->save();
     	return redirect('products')->with('success', ['Le produit', $product->name, 'a bien été modifié']); 
-    }
-
-    public function test(Request $request) {
-        return response()->json(['response' => 'la methode est passee']);
     }
 
 }

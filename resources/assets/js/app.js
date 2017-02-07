@@ -7,27 +7,26 @@
 		},
 
 		listeners: function() {
-			$('#btnTest').on('click', this.test.bind(this));
 			$('#btnSubtract').on('click', this.subtract.bind(this));
 		},
 
-		test: function() {
-			$.get('/test')
+		subtract: function() {
+			var id = $("#id").html();
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			$.ajax({
+				url: '/products/subtract/' + id,
+				type: 'post'
+			})
 			.done(function(response) {
+				$("#stock").html(response);
 				console.log(response);
 			});
-		},
-
-		subtract: function() {
-			console.log("yup");
-			var id = $("#id").html();
-			$.ajax({
-				url : '/products/subtract/' + id,
-				type : "post",
-				token : $( this ).find( 'input[name=_token]' ).val()
-			})
-			.done(function() {console.log("orijtijo")});
 		}
+
 	}
 
 	app.init();

@@ -79,27 +79,25 @@
 		},
 
 		listeners: function listeners() {
-			$('#btnTest').on('click', this.test.bind(this));
 			$('#btnSubtract').on('click', this.subtract.bind(this));
 		},
 
-		test: function test() {
-			$.get('/test').done(function (response) {
-				console.log(response);
-			});
-		},
-
 		subtract: function subtract() {
-			console.log("yup");
 			var id = $("#id").html();
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
 			$.ajax({
 				url: '/products/subtract/' + id,
-				type: "post",
-				token: $(this).find('input[name=_token]').val()
-			}).done(function () {
-				console.log("orijtijo");
+				type: 'post'
+			}).done(function (response) {
+				$("#stock").html(response);
+				console.log(response);
 			});
 		}
+
 	};
 
 	app.init();
