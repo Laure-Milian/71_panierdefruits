@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Comment;
 
 class ProductController extends Controller
 {
     public function getIndex() {
     	$products = Product::all();
-    	return view('list', ['products' => $products, 'message' => " "]);
+        return view('list', ['products' => $products]);
     }
 
     public function getShow($id) {
-    	$product = Product::find($id);
-    	return view('show', ['product' => $product]);
+        $product = Product::find($id);
+        $comments = Comment::where('product_id', $id)->get();
+    	return view('show', ['product' => $product, 'comments' => $comments]);
     }
 
 
@@ -43,7 +45,8 @@ class ProductController extends Controller
     	$product->price = $request->price;
     	$product->stock = $request->stock;
     	$product->save();
-    	return redirect('products')->with('success', ['Le produit', $product->name, 'a bien été ajouté']);
+    	return redirect('products')->with('success', ['Le produit', $product->name, 'a bien été ajouté']
+        );
     }
 
     public function postDelete($id) {

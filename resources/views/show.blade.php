@@ -30,4 +30,30 @@ Produit sélectionné :
 
 </div>
 
+<div class="ui comments">
+	@foreach ($comments as $comment)
+	<div class="comment">
+		<div class="content">
+			<a class="author">{{$comment->author}}</a>
+			<div class="metadata">
+				<div class="date">1 day ago</div>
+			</div>
+			<div class="text">
+				<p>{{$comment->content}}</p>
+			</div>
+		</div>
+	</div>
+	@endforeach
+	<form class="ui reply form">
+		<div class="field">
+			<textarea></textarea>
+		</div>
+		<div class="ui primary submit labeled icon button">
+			<i class="icon edit"></i> Add Comment
+		</div>
+	</form>
+</div>
+
+
+
 @endsection
